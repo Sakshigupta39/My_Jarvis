@@ -10,6 +10,7 @@ A desktop assistant using Python with GUI and voice interaction.
 
 ## Setup
 pip install -r requirements.txt
+<br>
 python main.py
 
 ## Requirements
