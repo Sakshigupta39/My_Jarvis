@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ask Jarvis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🎙️ Ask <b>JARVIS</b></h1>
+    <button onclick="startListening()">Speak to JARVIS</button>
+  <script>
+    function startListening() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+  
+      recognition.onresult = function(event) {
+        const command = event.results[0][0].transcript;
+        console.log('Voice input:', command);
+        sendToJarvis(command);
+      };
+  
+      recognition.onerror = function(event) {
+        console.error('Speech recognition error:', event.error);
+      };
+  
+      recognition.start();
+    }
+  
+    function sendToJarvis(command) {
+      fetch('/speak', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ command: command })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Jarvis responded:", data.message);
+        // Optional: Display message or trigger sound feedback
+      });
+    }
+  </script>
+  <button onclick="startListening()">🎤 Speak to JARVIS</button>
+
+  
+</body>
+</html>
