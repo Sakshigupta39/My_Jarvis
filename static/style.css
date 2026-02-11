@@ -1,0 +1,29 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #111;
+    color: #00ffcc;
+    text-align: center;
+    padding-top: 100px;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  input {
+    padding: 10px;
+    width: 60%;
+    border-radius: 10px;
+    border: none;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #00ffcc;
+    border: none;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,13 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore virtual environment
+venv/
+
+# Ignore temporary VS Code runner file
+tempCodeRunnerFile.*
+
+# ignore env file
+.env
+
